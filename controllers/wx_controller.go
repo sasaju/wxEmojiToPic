@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"crypto/sha1"
+	"github.com/beego/beego/v2/adapter/logs"
 	beego "github.com/beego/beego/v2/server/web"
 	"reflect"
 	"sort"
@@ -16,6 +17,7 @@ func (c *WxController) Get() {
 	params := models.WxParam{}
 	if err := c.ParseForm(&params); err != nil {
 		c.Ctx.WriteString("发生错误")
+		logs.Error("token验证失败")
 	}
 	data := reflect.TypeOf(params)
 	filed := data.Field(0)
