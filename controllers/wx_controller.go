@@ -5,6 +5,7 @@ import (
 	"github.com/beego/beego/v2/adapter/logs"
 	beego "github.com/beego/beego/v2/server/web"
 	"sort"
+	"strings"
 )
 
 type WxController struct {
@@ -21,9 +22,7 @@ func (c *WxController) Get() {
 	list0 := []string{token, timestamp, nonce}
 	sort.Strings(list0)
 	sha := sha1.New()
-	for i := range list0 {
-		sha.Write([]byte(list0[i]))
-	}
+	sha.Write([]byte(strings.Join(list0, "")))
 	bs := sha.Sum(nil)
 	if string(bs) == signature {
 		c.Ctx.WriteString(echostr)
