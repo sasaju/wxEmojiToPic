@@ -8,7 +8,6 @@ import (
 
 func main() {
 	err := logs.SetLogger(logs.AdapterFile, `{"filename":"run.log"}`)
-	beego.BConfig.CopyRequestBody = true
 	if err != nil {
 		logs.Error("日志配置失败")
 	}

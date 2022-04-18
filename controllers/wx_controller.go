@@ -47,6 +47,10 @@ type Msg struct {
 }
 
 func (c *WxController) Post() {
-	msgType := c.GetString("MsgType")
-	c.Ctx.WriteString(msgType)
+	msg := Msg{}
+	err := c.BindXML(&msg)
+	if err != nil {
+		return
+	}
+	c.Ctx.WriteString(msg.MsgType)
 }

@@ -2,7 +2,7 @@ module wxEmoji
 
 go 1.17
 
-require github.com/beego/beego/v2 v2.0.1
+require github.com/beego/beego/v2 v2.0.2
 
 require github.com/smartystreets/goconvey v1.6.4
 
@@ -22,13 +22,11 @@ require (
 	github.com/prometheus/procfs v0.1.3 // indirect
 	github.com/shiena/ansicolor v0.0.0-20151119151921-a422bbe96644 // indirect
 	github.com/smartystreets/assertions v0.0.0-20180927180507-b2de0cb4f26d // indirect
-	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9 // indirect
 	golang.org/x/mod v0.3.0 // indirect
 	golang.org/x/net v0.0.0-20201021035429-f5854403a974 // indirect
 	golang.org/x/sys v0.0.0-20200930185726-fdedc70b468f // indirect
 	golang.org/x/text v0.3.3 // indirect
 	golang.org/x/tools v0.0.0-20201211185031-d93e913c1a58 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
-	google.golang.org/protobuf v1.23.0 // indirect
 	gopkg.in/yaml.v2 v2.2.8 // indirect
 )
