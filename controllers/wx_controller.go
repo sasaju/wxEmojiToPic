@@ -25,12 +25,13 @@ func (c *WxController) Get() {
 	sha := sha1.New()
 	sha.Write([]byte(strings.Join(list0, "")))
 	bs := sha.Sum(nil)
-	if fmt.Sprint("%x", bs) == signature {
+	bsStr := fmt.Sprint("%x", bs)
+	if bsStr == signature {
 		c.Ctx.WriteString(echostr)
 	} else {
 		logs.Error("token未通过")
 		logs.Error("signature=" + signature + "t=" + timestamp + "n=" + nonce)
-		logs.Error("bs=" + string(bs))
+		logs.Error("bs=" + bsStr)
 		c.Ctx.WriteString("")
 	}
 }
