@@ -29,6 +29,7 @@ func (c *WxController) Get() {
 	} else {
 		logs.Error("token未通过")
 		logs.Error("signature=" + signature + "t=" + timestamp + "n=" + nonce)
+		logs.Error("bs=" + string(bs))
 		c.Ctx.WriteString("")
 	}
 }
