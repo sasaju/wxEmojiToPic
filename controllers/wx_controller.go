@@ -52,5 +52,6 @@ func (c *WxController) Post() {
 	if err != nil {
 		return
 	}
+	logs.Info(msg.MsgType)
 	c.Ctx.WriteString(msg.MsgType)
 }
