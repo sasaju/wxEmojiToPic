@@ -21,7 +21,7 @@ func (c *WxController) Get() {
 	}
 	data := reflect.TypeOf(params)
 	filed := data.Field(0)
-	signature := filed.Tag.Get("signature")
+	signature := c.GetString("signature", "未成功")
 	timestamp := filed.Tag.Get("timestamp")
 	nonce := filed.Tag.Get("nonce")
 	echostr := filed.Tag.Get("echostr")
