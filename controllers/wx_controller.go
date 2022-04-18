@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"crypto/sha1"
+	"fmt"
 	"github.com/beego/beego/v2/adapter/logs"
 	beego "github.com/beego/beego/v2/server/web"
 	"reflect"
@@ -34,6 +35,9 @@ func (c *WxController) Get() {
 		sha.Write([]byte(list0[i]))
 	}
 	bs := sha.Sum(nil)
+	fmt.Println(bs)
+	fmt.Println("以上为bs")
+	fmt.Println(signature)
 	if string(bs) == signature {
 		c.Ctx.WriteString(echostr)
 	} else {
