@@ -37,6 +37,7 @@ func (c *WxController) Get() {
 	if string(bs) == signature {
 		c.Ctx.WriteString(echostr)
 	} else {
+		logs.Error("token未通过")
 		c.Ctx.WriteString("")
 	}
 }
