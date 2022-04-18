@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"crypto/sha1"
+	"fmt"
 	"github.com/beego/beego/v2/adapter/logs"
 	beego "github.com/beego/beego/v2/server/web"
 	"sort"
@@ -24,7 +25,7 @@ func (c *WxController) Get() {
 	sha := sha1.New()
 	sha.Write([]byte(strings.Join(list0, "")))
 	bs := sha.Sum(nil)
-	if string(bs) == signature {
+	if fmt.Sprint("%x", bs) == signature {
 		c.Ctx.WriteString(echostr)
 	} else {
 		logs.Error("token未通过")
