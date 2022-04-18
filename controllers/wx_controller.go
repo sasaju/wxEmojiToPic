@@ -46,7 +46,7 @@ type Msg struct {
 	MsgId        string `xml:"MsgId"`
 }
 
-func (c *MainController) Post() {
+func (c *WxController) Post() {
 	msgType := c.GetString("MsgType")
 	c.Ctx.WriteString(msgType)
 }
