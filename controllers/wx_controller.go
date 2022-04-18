@@ -25,7 +25,7 @@ func (c *WxController) Get() {
 	sha := sha1.New()
 	sha.Write([]byte(strings.Join(list0, "")))
 	bs := sha.Sum(nil)
-	bsStr := fmt.Sprint("%x", bs)
+	bsStr := fmt.Sprintf("%x", bs)
 	if bsStr == signature {
 		c.Ctx.WriteString(echostr)
 	} else {
